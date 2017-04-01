@@ -50,7 +50,7 @@ io.sockets.on('connection',
   socket.on('message',
       function(data) {
         // Data comes in as whatever was sent, including objects
-        console.log("Received: " data.message);
+        console.log("Received: " + data.message);
       
         // Send it to all other clients
         socket.broadcast.emit('message', data);
