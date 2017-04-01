@@ -4,6 +4,7 @@
 
 // Keep track of our socket connection
 var socket;
+document.getElementById('btn').addEventListener("click", sendmsg);
 
 function setup() {
   createCanvas(400, 400);
@@ -51,4 +52,19 @@ function sendmouse(xpos, ypos) {
 
   // Send that object to the socket
   socket.emit('mouse',data);
+}
+
+// Function for sending to the socket
+function sendmsg() {
+  // We are sending!
+  msg = document.querySelector('input').value;
+  console.log("Sending Message: " + msg);
+  
+  // Make a little object with  and y
+  var data = {
+    message: msg   
+  };
+
+  // Send that object to the socket
+  socket.emit('message',data);
 }
