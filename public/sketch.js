@@ -9,7 +9,7 @@ document.getElementById('btn').addEventListener("click", sendmsg);
 socket.on('message',
     // When we receive data
     function(data) {
-      console.log("Got: " data.message);
+      console.log("Got: " + data.message);
       // Draw a blue circle
       alert(data.message);
     }
