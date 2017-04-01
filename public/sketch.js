@@ -6,15 +6,6 @@
 var socket;
 document.getElementById('btn').addEventListener("click", sendmsg);
 
-socket.on('message',
-    // When we receive data
-    function(data) {
-      console.log("Got: " + data.message);
-      // Draw a blue circle
-      alert(data.message);
-    }
-  );
-
 function setup() {
   createCanvas(400, 400);
   background(0);
@@ -31,6 +22,14 @@ function setup() {
       fill(0,0,255);
       noStroke();
       ellipse(data.x, data.y, 20, 20);
+    }
+  );
+    socket.on('message',
+    // When we receive data
+    function(data) {
+      console.log("Got: " + data.message);
+      // Draw a blue circle
+      alert(data.message);
     }
   );
 }
