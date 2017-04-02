@@ -72,6 +72,8 @@ function sendmsg() {
   var data = {
     message: msg   
   };
+  
+  $('.msgs').append('</p>' + data.message + "</p>");
 
   // Send that object to the socket
   socket.emit('message',data);
