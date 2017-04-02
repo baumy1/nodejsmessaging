@@ -29,7 +29,7 @@ function setup() {
     function(data) {
       console.log("Got: " + data.message);
       // Draw a blue circle
-      createP(data.message);
+    $('.msgs').append('</p>' + data.message + "</p>");
     }
   );
 }
