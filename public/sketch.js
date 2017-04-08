@@ -3,7 +3,7 @@ var socket;
 document.getElementById('btn').addEventListener("click", sendmsg);
 
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(window.innerWidth, window.innerHeight);
   // Start a socket connection to the server
   // Some day we would run this server somewhere else
   socket = io.connect('https://nodejsmessaging.herokuapp.com/');
