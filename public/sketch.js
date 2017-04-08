@@ -1,7 +1,3 @@
-// ITP Networked Media, Fall 2014
-// https://github.com/shiffman/itp-networked-media
-// Daniel Shiffman
-
 // Keep track of our socket connection
 var socket;
 document.getElementById('btn').addEventListener("click", sendmsg);
@@ -13,6 +9,7 @@ function setup() {
   socket = io.connect('https://nodejsmessaging.herokuapp.com/');
   // We make a named event called 'mouse' and write an
   // anonymous callback function
+  
   socket.on('mouse',
     // When we receive data
     function(data) {
@@ -35,7 +32,6 @@ function setup() {
 }
 
 function draw() {
-    background(0);
 }
 
 function mouseDragged() {
