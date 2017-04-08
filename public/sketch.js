@@ -27,7 +27,7 @@ function setup() {
 }
 
 function draw() {
-    background(bg);
+    background(0);
   socket.on('message',
     // When we receive data
     function(data) {
