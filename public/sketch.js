@@ -24,7 +24,11 @@ function setup() {
       ellipse(data.x, data.y, 20, 20);
     }
   );
-    socket.on('message',
+}
+
+function draw() {
+    background(bg);
+  socket.on('message',
     // When we receive data
     function(data) {
       console.log("Got: " + data.message);
@@ -32,10 +36,6 @@ function setup() {
     $('.msgs').append('</p>' + data.message + "</p>");
     }
   );
-}
-
-function draw() {
-    background(bg);
 }
 
 function mouseDragged() {
