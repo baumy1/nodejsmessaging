@@ -8,7 +8,7 @@ document.getElementById('btn').addEventListener("click", sendmsg);
 
 function setup() {
   createCanvas(400, 400);
-  background(0);
+  bg = loadImage("http://baumcycles.weebly.com/uploads/9/8/7/6/98768672/gth-01_orig.png");
   // Start a socket connection to the server
   // Some day we would run this server somewhere else
   socket = io.connect('https://nodejsmessaging.herokuapp.com/');
@@ -35,7 +35,7 @@ function setup() {
 }
 
 function draw() {
-  // Nothing
+    background(bg);
 }
 
 function mouseDragged() {
