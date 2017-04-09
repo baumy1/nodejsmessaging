@@ -17,9 +17,9 @@ function listen() {
 
 app.use(express.static('public'));
 
-/*Uploading files Section
+//Uploading files Section
 app.post('/upload', function(req, res) {
-    if (!req.files)
+   /* if (!req.files)
         return res.status(400).send('No files were uploaded.');
 
     // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file 
@@ -40,8 +40,8 @@ app.post('/upload', function(req, res) {
             console.log("The file was saved!");
         });
         res.send('File uploaded!');
-    });
-});*/
+    });*/
+});
 
 // WebSocket Portion
 var io = require('socket.io')(server);
