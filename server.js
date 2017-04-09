@@ -1,17 +1,12 @@
-// Based off of Shawn Van Every's Live Web
-// http://itp.nyu.edu/~sve204/liveweb_fall2013/week3.html
-
-// Using express: http://expressjs.com/
 var express = require('express');
+var fileUpload = require('express-fileupload');
 
-// Create the app
 var app = express();
+app.use(fileUpload());
 
 // Set up the server
-// process.env.PORT is related to deploying on heroku
 var server = app.listen(process.env.PORT || 80, listen);
 
-// This call back just tells us that the server has started
 function listen() {
   var host = server.address().address;
   var port = server.address().port;
@@ -20,45 +15,44 @@ function listen() {
 
 app.use(express.static('public'));
 
+//Uploading files Section
+app.post('drawing/upload/send', function(req, res) {
+  if (!req.files)
+    return res.status(400).send('No files were uploaded.');
+ 
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file 
+  let sampleFile = req.files.sampleFile;
+ 
+  // Use the mv() method to place the file somewhere on your server 
+  sampleFile.mv('public/drawing/image.jpg', function(err) {
+    if (err)
+      return res.status(500).send(err);
+ 
+    res.send('File uploaded!');
+  });
+});
 
 // WebSocket Portion
-// WebSockets work with the HTTP server
 var io = require('socket.io')(server);
 
-// Register a callback function to run when we have an individual connection
-// This is run for each individual user that connects
 io.sockets.on('connection',
-  // We are given a websocket object in our function
   function (socket) {
   
     console.log("We have a new client: " + socket.id);
-  
-    // When this user emits, client side: socket.emit('otherevent',some data);
+    
+  // Drawing Tools 
     socket.on('mouse',
       function(data) {
-        // Data comes in as whatever was sent, including objects
-        console.log("Received: 'mouse' " + data.x + " " + data.y);
-      
-        // Send it to all other clients
-        socket.broadcast.emit('mouse', data);
-        
-        // This is a way to send to everyone including sender
-        // io.sockets.emit('message', "this goes to everyone");
-
+         console.log("Received: 'mouse' " + data.x + " " + data.y);
+         socket.broadcast.emit('mouse', data);
       }
     );
   
+  // Instant Messaging
   socket.on('message',
       function(data) {
-        // Data comes in as whatever was sent, including objects
         console.log("Received: " + data.message);
-      
-        // Send it to all other clients
         socket.broadcast.emit('message', data);
-        
-        // This is a way to send to everyone including sender
-        // io.sockets.emit('message', "this goes to everyone");
-
       }
     );
     
