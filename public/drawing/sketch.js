@@ -1,11 +1,12 @@
 // Keep track of our socket connection
 var socket;
+var fileName;
 
 function setup() {
-  createCanvas(1600, 900);
+  createCanvas(1000, 563);
   // Start a socket connection to the server
   // Some day we would run this server somewhere else
-  socket = io.connect('https://nodejsmessaging.herokuapp.com/');
+  socket = io.connect('192.168.0.11');
   // We make a named event called 'mouse' and write an
   // anonymous callback function
   
