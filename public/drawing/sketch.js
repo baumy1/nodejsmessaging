@@ -20,6 +20,13 @@ function setup() {
       ellipse(data.x, data.y, 20, 20);
     }
   );
+  
+  
+function circle(x, y, c) {
+  fill(c);
+  noStroke();
+  ellipse(x,y,20,20);
+}
   }
 
 function draw() {
@@ -42,13 +49,6 @@ function sendmouse(xpos, ypos) {
 
   // Send that object to the socket
   socket.emit('mouse',data);
-}
-
-function circle(x, y, c) {
-  alert(x + " " + y + " " + c)
-  fill(c);
-  noStroke();
-  ellipse(x,y,20,20);
 }
 
 function loadData() { 
