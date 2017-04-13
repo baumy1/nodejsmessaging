@@ -20,12 +20,14 @@ function setup() {
       ellipse(data.x, data.y, 20, 20);
     }
   );
-  }
 
-function draw() {
   for (var i = 0; i < 2; i++) {
     circles[i].display();
   }
+  }
+
+function draw() {
+
 }
 
 function mouseDragged() {
