@@ -63,6 +63,7 @@ function loadData() {
   this.x = Number(x);
   this.y = Number(y);
   this.colour = c;
+   console.log("I am the top of the circle function!");
 
   // Display the Circle
   this.display = function() {
