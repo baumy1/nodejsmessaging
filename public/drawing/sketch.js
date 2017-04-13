@@ -4,7 +4,7 @@ var table;
 var circles;
 
 function preload() {
-  table = loadTable("data/data.csv", "header");
+  table = loadTable("data.csv", "header");
 }
 
 function setup() {
