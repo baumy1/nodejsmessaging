@@ -2,6 +2,7 @@ var socket;
 var fileName;
 var table;
 var circles;
+var colour = "#0061ff";
 
 function preload() {
   table = loadTable("data.csv", "header");
@@ -39,10 +40,11 @@ function mouseDragged() {
 
 function sendmouse(xpos, ypos) {
   console.log("sendmouse: " + xpos + " " + ypos);
-
+  
   var data = {
     x: xpos,
-    y: ypos
+    y: ypos,
+    colour: colour
   };
 
   // Send that object to the socket
