@@ -20,16 +20,14 @@ function setup() {
       ellipse(data.x, data.y, 20, 20);
     }
   );
-  
-  
-function circle(x, y, c) {
+  }
+
+function draw() {
+  function circle(x, y, c) {
   fill(c);
   noStroke();
   ellipse(x,y,20,20);
 }
-  }
-
-function draw() {
 }
 
 function mouseDragged() {
