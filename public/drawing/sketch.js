@@ -48,18 +48,14 @@ function sendmouse(xpos, ypos) {
 }
 
 function loadData() {
-
   circles = [];
 
-  // You can access iterate over all the rows in a table
   for (var i = 0; i < table.getRowCount(); i++) {
     var row = table.getRow(i);
-    // You can access the fields via their column name (or index)
     var x = row.get("x");
     var y = row.get("y");
     var c = row.get("colour");
-    // Make a Bubble object out of the data read
-    circles[i] = new Circle(x, y, c);
+    circles[i] = new circle(x, y, c);
   }
 }
 
