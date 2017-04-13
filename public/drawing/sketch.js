@@ -32,12 +32,9 @@ function mouseDragged() {
   sendmouse(mouseX,mouseY);
 }
 
-// Function for sending to the socket
 function sendmouse(xpos, ypos) {
-  // We are sending!
   console.log("sendmouse: " + xpos + " " + ypos);
   
-  // Make a little object with  and y
   var data = {
     x: xpos,
     y: ypos
@@ -56,7 +53,6 @@ function circle(x, y, c) {
 function loadData() { 
   for (var i = 0; i < table.getRowCount(); i++) {
     var row = table.getRow(i);
-    // You can access the fields via their column name (or index)
     var x = row.get("x");
     var y = row.get("y");
     var c = row.get("colour");
