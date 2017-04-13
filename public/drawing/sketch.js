@@ -23,11 +23,7 @@ function setup() {
   }
 
 function draw() {
-  function circle(x, y, c) {
-  fill(c);
-  noStroke();
-  ellipse(x,y,20,20);
-}
+ 
 }
 
 function mouseDragged() {
@@ -57,4 +53,10 @@ function loadData() {
     var c = row.get("colour");
     circle(x, y, c);
   }
+}
+
+ function circle(x, y, c) {
+  fill(c);
+  noStroke();
+  ellipse(x,y,20,20);
 }
