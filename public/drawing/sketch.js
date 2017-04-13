@@ -24,7 +24,7 @@ function setup() {
 
 function draw() {
   for (var i = 0; i < circles.length; i++) {
-    bubbles[i].display();
+    circles[i].display();
   }
 }
 
@@ -59,7 +59,7 @@ function loadData() {
     var y = row.get("y");
     var c = row.get("colour");
     // Make a Bubble object out of the data read
-    colour[i] = new Circle(x, y, c);
+    circles[i] = new Circle(x, y, c);
   }
 }
 
