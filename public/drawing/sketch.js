@@ -69,5 +69,6 @@ function loadData() {
     fill(this.colour);
     noStroke();
     ellipse(this.x, this.y, 20,20);
+    console.log(this.x + " " + this.y + " " + this.colour);
   }
 }
