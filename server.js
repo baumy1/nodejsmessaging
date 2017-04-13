@@ -55,7 +55,7 @@ io.sockets.on('connection',
         socket.on('mouse',
             function(data) {
                 console.log("Received: 'mouse' " + data.x + " " + data.y);
-                fs.write(("public/drawing/data.csv", data.x + "," + data.y + "," + data.colour,'a');
+               // fs.write(("public/drawing/data.csv", data.x + "," + data.y + "," + data.colour,'a');
                 socket.broadcast.emit('mouse', data);
             }
         );
