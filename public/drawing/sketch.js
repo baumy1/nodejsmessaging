@@ -45,6 +45,7 @@ function sendmouse(xpos, ypos) {
 }
 
 function circle(x, y, c) {
+  alert(x + " " + y + " " + c)
   fill(c);
   noStroke();
   ellipse(x,y,20,20);
