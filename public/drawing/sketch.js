@@ -47,20 +47,19 @@ function sendmouse(xpos, ypos) {
   socket.emit('mouse',data);
 }
 
-function loadData() {
-  // Load CSV file into a Table object
-  // "header" option indicates the file has a header row
+function circle(x, y, c) {
+  fill(c);
+  noStroke();
+  ellipse(x,y,20,20);
+}
 
-  // The size of the array of Bubble objects is determined by the total number of rows in the CSV
-  circles = []; 
-
-  // You can access iterate over all the rows in a table
+function loadData() { 
   for (var i = 0; i < table.getRowCount(); i++) {
     var row = table.getRow(i);
     // You can access the fields via their column name (or index)
     var x = row.get("x");
     var y = row.get("y");
     var c = row.get("colour");
-    circles[i] = new Bubble(x, y, c);
+    circle(x, y, c);
   }
 }
