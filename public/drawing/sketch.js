@@ -22,7 +22,7 @@ function setup() {
     }
   );
 
-  for (var i = 0; i < 2; i++) {
+  for (var i = 0; i < circles.length; i++) {
     circles[i].display();
   }
   }
