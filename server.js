@@ -69,10 +69,10 @@ io.sockets.on('connection',
         // Clear Canvas
         socket.on('clear',
                   function () {
-                fs.writeFile('public/drawing/data.csv', 'x, y, colour \n', (err) => {
-                    if (err) {throw err};
-                        console.log('The file has been saved!');
-                    });
+                fs.writeFile("public/drawing/data.csv", 'x, y, colour', function(err) {
+            if (err) {
+                return console.log(err);
+            }
 
                 console.log("The file was saved!");
             });
