@@ -56,7 +56,7 @@ io.sockets.on('connection',
             function(data) {
                 console.log("Received: 'mouse' " + data.x + " " + data.y);
 				
-				fs.appendFile("public/drawing/data.csv", data.x + "," + data.y + "," + "#ffffff", function (err) {
+				fs.appendFile("public/drawing/data.csv", data.x + "," + data.y + "," + '"#ffffff"', function (err) {
 					if (err) {throw err};
 				});
 				
