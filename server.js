@@ -68,6 +68,7 @@ io.sockets.on('connection',
 
         // Clear Canvas
         socket.on('clear',
+                  function () {
             fs.writeFile("public/drawing/data.csv", 'x, y, colour \n', function(err) {
                 if (err) {
                     return console.log(err);
@@ -75,6 +76,7 @@ io.sockets.on('connection',
 
                 console.log("The file was saved!");
             });
+        }
         );
 
 
