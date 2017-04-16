@@ -55,16 +55,28 @@ io.sockets.on('connection',
         socket.on('mouse',
             function(data) {
                 console.log("Received: 'mouse' " + data.x + " " + data.y);
-				
-				fs.appendFile("public/drawing/data.csv", data.x + "," + data.y + "," + '"#ffffff" \n', function (err) {
-					if (err) {throw err};
-				});
-				
-				//fs.appendFileSync("public/drawing/data.csv", data.x + "," + data.y + "," + "#ffffff","a");
-                
-				socket.broadcast.emit('mouse', data);
+
+                fs.appendFile("public/drawing/data.csv", data.x + "," + data.y + "," + '"#ffffff" \n', function(err) {
+                    if (err) {
+                        throw err
+                    };
+                });
+
+                socket.broadcast.emit('mouse', data);
             }
         );
+
+        // Clear Canvas
+        socket.on('clear',
+            fs.writeFile("public/drawing/data.csv", 'x, y, colour \n', function(err) {
+                if (err) {
+                    return console.log(err);
+                }
+
+                console.log("The file was saved!");
+            });
+        );
+
 
         // Instant Messaging
         socket.on('message',
