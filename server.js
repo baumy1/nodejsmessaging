@@ -22,12 +22,12 @@ app.post('/upload', function(req, res) {
     if (!req.files) {
         return res.status(400).send('No files were uploaded.');
     }
-    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file 
+
     let sampleFile = req.files.sampleFile;
 
     console.log("File Ext: " + sampleFile.name.split('.').pop());
 
-    // Use the mv() method to place the file somewhere on your server 
+    // Use the mv() method to place the file on the server 
     sampleFile.mv('public/drawing/image.' + sampleFile.name.split('.').pop(), function(err) {
         if (err)
             return res.status(500).send(err);
@@ -55,8 +55,14 @@ io.sockets.on('connection',
         socket.on('mouse',
             function(data) {
                 console.log("Received: 'mouse' " + data.x + " " + data.y);
-               fs.appendFileSync("public/drawing/data.csv", data.x + "," + data.y + "," + "#ffffff","a");
-                socket.broadcast.emit('mouse', data);
+				
+				fs.appendFile("public/drawing/data.csv", data.x + "," + data.y + "," + "#ffffff", function (err) {
+					if (err) {throw err};
+				});
+				
+				//fs.appendFileSync("public/drawing/data.csv", data.x + "," + data.y + "," + "#ffffff","a");
+                
+				socket.broadcast.emit('mouse', data);
             }
         );
 
