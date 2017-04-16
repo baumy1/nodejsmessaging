@@ -83,6 +83,6 @@ document.getElementById("clear").addEventListener("click", clearCanvas);
 
 var smile = "smile";
 
-function ClearCanvas () {
+function clearCanvas () {
   socket.emit('clear', smile);
 }
