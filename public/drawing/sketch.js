@@ -77,3 +77,10 @@ function loadData() {
     console.log(this.x + " " + this.y + " " + this.colour);
   }
 }
+
+// Clear Function
+document.getElementById("clear").addEventListener("click", clearCanvas);
+
+function ClearCanvas () {
+  socket.emit('clear', "(:");
+}
