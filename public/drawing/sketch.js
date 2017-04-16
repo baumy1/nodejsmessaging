@@ -81,6 +81,8 @@ function loadData() {
 // Clear Function
 document.getElementById("clear").addEventListener("click", clearCanvas);
 
+var smile = "smile";
+
 function ClearCanvas () {
-  socket.emit('clear', "(:");
+  socket.emit('clear', smile);
 }
