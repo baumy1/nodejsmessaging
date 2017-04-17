@@ -99,4 +99,5 @@ document.getElementById("colour-button").addEventListener("click", changeColour)
 
 function changeColour () {
   colour = document.getElementById("colour-input").value;
+  console.log("Colour is: " + colour)
 }
