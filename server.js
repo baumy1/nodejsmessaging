@@ -73,10 +73,10 @@ io.sockets.on('connection',
             if (err) {
                 return console.log(err);
             }
-
                 console.log("The file was saved!");
             });
         }
+                socket.broadcast.emit('refresh', "(:");
         );
 
 
