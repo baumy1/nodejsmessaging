@@ -2,7 +2,7 @@ var socket;
 var fileName;
 var table;
 var circles;
-var colour = "#0061ff";
+var colour = "#ffffff";
 
 function preload() {
   table = loadTable("data.csv", "header");
