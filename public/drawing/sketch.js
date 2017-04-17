@@ -93,3 +93,10 @@ function clearCanvas () {
   socket.emit('clear', smile);
   location.reload();   
 }
+
+// Colour Function
+document.getElementById("colour-button").addEventListener("click", changeColour);
+
+function changeColour () {
+  colour = document.getElementById("colour-input").value;
+}
