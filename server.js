@@ -75,8 +75,8 @@ io.sockets.on('connection',
             }
                 console.log("The file was saved!");
             });
+			 socket.broadcast.emit('refresh', "(:");
         }
-                socket.broadcast.emit('refresh', "(:");
         );
 
 
