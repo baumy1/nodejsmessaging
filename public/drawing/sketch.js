@@ -95,7 +95,7 @@ function clearCanvas () {
 }
 
 // Colour Function
-document.getElementById("colour-button").addEventListener("click", changeColour);
+document.getElementById("colour-send").addEventListener("click", changeColour);
 
 function changeColour () {
   colour = document.getElementById("colour-input").value;
