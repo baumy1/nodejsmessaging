@@ -21,6 +21,12 @@ function setup() {
       ellipse(data.x, data.y, 20, 20);
     }
   );
+  
+  socket.on('refresh',
+    function() {
+      location.reload();    
+  }
+  );
 
   for (var i = 0; i < circles.length; i++) {
     circles[i].display();
@@ -86,9 +92,3 @@ var smile = "smile";
 function clearCanvas () {
   socket.emit('clear', smile);
 }
-
-  socket.on('refresh',
-    function() {
-      location.reload();    
-  }
-  );
