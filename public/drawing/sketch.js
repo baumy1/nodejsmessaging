@@ -91,4 +91,5 @@ var smile = "smile";
 
 function clearCanvas () {
   socket.emit('clear', smile);
+  location.reload();   
 }
