@@ -16,7 +16,7 @@ function setup() {
   socket.on('mouse',
     function(data) {
       console.log("Got: " + data.x + " " + data.y);
-      fill(0,0,255);
+      fill(data.colour);
       noStroke();
       ellipse(data.x, data.y, 20, 20);
     }
@@ -38,7 +38,7 @@ function draw() {
 }
 
 function mouseDragged() {
-  fill(255);
+  fill(colour);
   noStroke();
   ellipse(mouseX,mouseY,20,20);
   sendmouse(mouseX,mouseY);
